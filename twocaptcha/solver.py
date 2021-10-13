@@ -475,7 +475,7 @@ class TwoCaptcha():
         '''
 
         response = self.api_client.res(key=self.API_KEY, action='getbalance')
-        return float(response)
+        return float(response.replace(",", "."))
 
     def report(self, id_, correct):
         '''
