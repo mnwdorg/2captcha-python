@@ -1,3 +1,6 @@
+import ssl
+ssl.match_hostname = lambda cert, hostname: True
+
 from .api import ApiClient
 from .solver import (TwoCaptcha, SolverExceptions, ValidationException,
                      NetworkException, ApiException, TimeoutException)
