@@ -49,7 +49,7 @@ class ApiClient():
                 files = {key: open(path, 'rb') for key, path in files.items()}
                 resp = requests.post(current_url,
                                      data=kwargs,
-                                     files=files)
+                                     files=files, verify=False)
 
                 [f.close() for f in files.values()]
 
@@ -58,7 +58,7 @@ class ApiClient():
                 with open(kwargs.pop('file'), 'rb') as f:
                     resp = requests.post(current_url,
                                          data=kwargs,
-                                         files={'file': f})
+                                         files={'file': f}, verify=False)
 
             else:
                 resp = requests.post(current_url,
@@ -102,7 +102,7 @@ class ApiClient():
 
         try:
             current_url_out = 'https://'+self.post_url+'/res.php'
-            resp = requests.get(current_url_out, params=kwargs)
+            resp = requests.get(current_url_out, params=kwargs, verify=False)
 
             if resp.status_code != 200:
                 raise NetworkException(f'bad response: {resp.status_code}')
