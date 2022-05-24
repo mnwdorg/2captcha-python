@@ -62,7 +62,7 @@ class ApiClient():
 
             else:
                 resp = requests.post(current_url,
-                                     data=kwargs)
+                                     data=kwargs, verify=False)
 
         except requests.RequestException as e:
             raise NetworkException(e)
