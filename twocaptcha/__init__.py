@@ -8,4 +8,4 @@ from .solver import (TwoCaptcha, SolverExceptions, ValidationException,
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-__version__ = '1.1.2'
+__version__ = '1.2.0'

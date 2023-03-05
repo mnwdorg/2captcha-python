@@ -13,15 +13,13 @@ from twocaptcha import TwoCaptcha
 
 api_key = os.getenv('APIKEY_2CAPTCHA', 'YOUR_API_KEY')
 
-solver = TwoCaptcha(api_key, defaultTimeout=100, pollingInterval=10)
+solver = TwoCaptcha(api_key)
 
 try:
-    result = solver.rotate(
-        'images/rotate.jpg',
-        angle=40,
-        lang='en',
-        # hintImg  = 'images/rotate_hint.jpg'
-        hintText='Put the images in the correct way up')
+    result = solver.turnstile(
+        sitekey='0x4AAAAAAAC3DHQFLr1GavRN',
+        url='https://2captcha.com/demo/turnstile',
+    )
 
 except Exception as e:
     sys.exit(e)

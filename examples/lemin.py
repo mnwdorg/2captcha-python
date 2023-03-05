@@ -1,6 +1,5 @@
 import sys
 import os
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 from twocaptcha import TwoCaptcha
@@ -13,15 +12,13 @@ from twocaptcha import TwoCaptcha
 
 api_key = os.getenv('APIKEY_2CAPTCHA', 'YOUR_API_KEY')
 
-solver = TwoCaptcha(api_key, defaultTimeout=100, pollingInterval=10)
+solver = TwoCaptcha(api_key)
 
 try:
-    result = solver.rotate(
-        'images/rotate.jpg',
-        angle=40,
-        lang='en',
-        # hintImg  = 'images/rotate_hint.jpg'
-        hintText='Put the images in the correct way up')
+    result = solver.lemin(captcha_id='CROPPED_3dfdd5c_d1872b526b794d83ba3b365eb15a200b',
+                                div_id='lemin-cropped-captcha', 
+                                url='https://2captcha.com/demo/lemin')
+
 
 except Exception as e:
     sys.exit(e)
